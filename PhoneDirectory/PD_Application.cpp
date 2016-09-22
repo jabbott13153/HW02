@@ -16,7 +16,8 @@ void do_save(Phone_Directory&);
 
 int main(int argc, char* argv[])
 {
-	if (argc < 2) {
+	if (argc < 2)
+	{
 		cerr << "Must specify the name of the data file"
 			" that contains the directory\n";
 		return 1;
@@ -24,6 +25,8 @@ int main(int argc, char* argv[])
 	Phone_Directory the_directory;
 	the_directory.load_data(argv[1]);
 	process_commands(the_directory);
+
+	return 0;
 }
 
 void process_commands(Phone_Directory& the_directory)
@@ -91,11 +94,15 @@ void do_remove_entry(Phone_Directory& the_directory) // Exercise 1.8: please com
 	cout << "Enter name: ";
 	getline(cin, name);
 	// Complete the rest of this function 
-	
+
+	//Aleisha Bagnall-Smith
+	name = the_directory.remove_entry(name);
+
 }
 
 void do_save(Phone_Directory& the_directory)
 {
 	the_directory.save();
 }
+
 
